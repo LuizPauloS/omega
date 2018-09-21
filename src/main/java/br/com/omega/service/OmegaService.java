@@ -20,4 +20,13 @@ public class OmegaService {
     public List<Pessoa> listPessoa() {
         return this.pessoaRepository.findAll();
     }
+
+    public Pessoa findPessoaById(Long id){
+        return this.pessoaRepository.findPessoaById(id);
+    }
+
+    public Pessoa updatePessoa(Pessoa pessoa){
+        return this.pessoaRepository.save(pessoa);
+    }
+
 }

@@ -16,8 +16,8 @@ public class OmegaResource {
     @Autowired
     private OmegaService omegaService;
 
-    @GetMapping("/teste")
-    public ResponseEntity<String> getOmegas(){
+    @GetMapping("/hello-word")
+    public ResponseEntity<String> getHelloWordOmega(){
         boolean deucerto = true;
         if(deucerto) {
             return ResponseEntity.ok("HELLO WORD");
@@ -26,7 +26,7 @@ public class OmegaResource {
     }
 
     @PostMapping("/save")
-    public ResponseEntity<Pessoa> savePessoa(@RequestBody Pessoa pessoa){
+    public ResponseEntity<Pessoa> savePessoaOmega(@RequestBody Pessoa pessoa){
         return ResponseEntity.ok(this.omegaService.savePessoa(pessoa));
     }
 
@@ -34,4 +34,17 @@ public class OmegaResource {
     public ResponseEntity<List<Pessoa>> getPessoasOmega(){
         return new ResponseEntity<>(this.omegaService.listPessoa(), HttpStatus.OK);
     }
+
+    @PutMapping("/update/{id}")
+    public ResponseEntity<?> updatePessoaOmega(@PathVariable("id") Long idPessoa, @RequestBody Pessoa pessoa){
+        Pessoa p = this.omegaService.findPessoaById(idPessoa);
+        if (p != null){
+            p.setNome(pessoa.getNome());
+            p.setCpf(pessoa.getCpf());
+            return ResponseEntity.ok(this.omegaService.updatePessoa(p));
+        }
+        return ResponseEntity.noContent().build();
+    }
+
+
 }
