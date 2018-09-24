@@ -29,4 +29,7 @@ public class OmegaService {
         return this.pessoaRepository.save(pessoa);
     }
 
+    public void deletePessoa(Pessoa pessoa) {
+        this.pessoaRepository.delete(pessoa);
+    }
 }
