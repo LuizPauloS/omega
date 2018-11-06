@@ -12,6 +12,11 @@ pipeline {
         sh 'npm install'
       }
     }
+    stage('Test') {
+      steps {
+        echo 'Testes em execução!'
+      }
+    }
   }
   environment {
     Start = ''
