@@ -1,20 +1,32 @@
-package br.com.omega.model;
+package br.com.omega.omega.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-//@NamedQuery(name = "findAllPessoaNamedQuery", query = "select pessoa from Pessoa pessoa")
 public class Pessoa implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
     @Column(name = "nome_pessoa", length = 255)
     private String nome;
     private String cpf;
+
+    public Pessoa() {}
+
+    public Pessoa(String nome, String cpf) {
+        this.nome = nome;
+        this.cpf = cpf;
+    }
+
+    public Pessoa(Long id, String nome, String cpf) {
+        this.id = id;
+        this.nome = nome;
+        this.cpf = cpf;
+    }
 
     public Long getId() {
         return id;

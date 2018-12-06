@@ -1,4 +1,4 @@
-package br.com.omega;
+package br.com.omega.omega;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
