@@ -1,0 +1,7 @@
+DELETE FROM agenda;
+DELETE FROM pessoa;
+DELETE FROM profissional;
+
+ALTER SEQUENCE agenda_id_seq RESTART WITH 1;
+ALTER SEQUENCE pessoa_id_seq RESTART WITH 1;
+ALTER SEQUENCE profissional_id_seq RESTART WITH 1;

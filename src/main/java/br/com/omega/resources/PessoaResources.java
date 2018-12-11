@@ -30,7 +30,7 @@ public class PessoaResources {
     @PostMapping("/save")//create
     public ResponseEntity<Pessoa> savePessoa(@RequestBody Pessoa pessoa){
         try {
-            return ResponseEntity.ok(this.pessoaService.savePessoa(pessoa));
+            return ResponseEntity.status(201).body(this.pessoaService.savePessoa(pessoa));
         } catch (UnicidadeCPFException ex) {
             throw new BadRequestException("Erro ao inserir nova pessoa. " + ex.getMessage());
         }
