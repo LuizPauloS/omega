@@ -1,9 +1,10 @@
-package br.com.omega.omega.services.imp;
+package br.com.omega.services.imp;
 
-import br.com.omega.omega.exception.UnicidadeCPFException;
-import br.com.omega.omega.model.Pessoa;
-import br.com.omega.omega.repository.PessoaRepository;
-import br.com.omega.omega.services.PessoaService;
+import br.com.omega.model.wrapper.UsuarioWrapper;
+import br.com.omega.exception.UnicidadeCPFException;
+import br.com.omega.model.Pessoa;
+import br.com.omega.repository.PessoaRepository;
+import br.com.omega.services.PessoaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,11 +14,11 @@ import java.util.List;
 public class PessoaServiceImp implements PessoaService {
 
     @Autowired
-    private final PessoaRepository pessoaRepository;
+    private PessoaRepository pessoaRepository;
 
-    public PessoaServiceImp(PessoaRepository pessoaRepository) {
-        this.pessoaRepository = pessoaRepository;
-    }
+//    public PessoaServiceImp(PessoaRepository pessoaRepository) {
+//        this.pessoaRepository = pessoaRepository;
+//    }
 
     @Override
     public Pessoa savePessoa(Pessoa pessoa) throws UnicidadeCPFException{
@@ -51,5 +52,13 @@ public class PessoaServiceImp implements PessoaService {
     @Override
     public Pessoa findPessoaByCpf(String cpf) {
        return this.pessoaRepository.findPessoaByCpf(cpf);
+    }
+
+    @Override
+    public Pessoa login(UsuarioWrapper usuarioWrapper) {
+        if(usuarioWrapper != null){
+            return this.pessoaRepository.findPessoaByNomeIsLike(usuarioWrapper.getUsername());
+        }
+        return null;
     }
 }

@@ -1,17 +1,14 @@
-package br.com.omega.omega.resources;
+package br.com.omega.resources;
 
-import br.com.omega.omega.model.Pessoa;
-import br.com.omega.omega.services.imp.PessoaServiceImp;
+import br.com.omega.model.Pessoa;
+import br.com.omega.model.wrapper.UsuarioWrapper;
+import br.com.omega.services.imp.PessoaServiceImp;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.Arrays;
 import java.util.List;
-import net.bytebuddy.matcher.ElementMatchers;
-import org.hamcrest.Matchers;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.experimental.results.ResultMatchers;
 import org.junit.runner.RunWith;
-import org.mockito.BDDMockito;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -19,7 +16,6 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.ResultMatcher;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
@@ -40,7 +36,6 @@ public class PessoaResourceTest {
     @Before
     public void setUp() throws Exception {
         //this.mockMvc = MockMvcBuilders.standaloneSetup(pessoaResources).build();
-        Pessoa pessoa = this.mockPessoa();
         //Mockito.when(this.pessoaServiceImp.savePessoa(pessoa)).thenReturn(pessoa);
     }
     
@@ -81,7 +76,23 @@ public class PessoaResourceTest {
 //                .andExpect(MockMvcResultMatchers.jsonPath("$[0].nome", Matchers.is("Marcos")));
     }
     
+    @Test
+    public void testaPOSTLogin() throws Exception{
+        Pessoa pessoa = this.mockPessoa();
+        UsuarioWrapper usuarioWrapper = this.mockUsuario();
+        Mockito.when(this.pessoaServiceImp.login(usuarioWrapper)).thenReturn(pessoa);
+        this.mockMvc.perform(MockMvcRequestBuilders.post("/pessoa/login")
+                .content(objectMapper.writeValueAsString(usuarioWrapper))
+                .contentType(MediaType.APPLICATION_JSON))
+                .andDo(MockMvcResultHandlers.print())
+                .andExpect(MockMvcResultMatchers.status().isOk());
+    }
+    
     private Pessoa mockPessoa(){
-        return new Pessoa(1L, "Luiz", "111.111.111-11");
+        return new Pessoa(1L, "Luiz Silva", "111.111.111-11");
+    }
+    
+    private UsuarioWrapper mockUsuario(){
+        return new UsuarioWrapper("Luiz Silva", "123456");
     }
 }

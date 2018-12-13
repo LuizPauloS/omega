@@ -1,7 +1,7 @@
-package br.com.omega.omega.resources;
+package br.com.omega.resources;
 
-import br.com.omega.omega.model.Profissional;
-import br.com.omega.omega.services.imp.ProfissionalServiceImp;
+import br.com.omega.model.Profissional;
+import br.com.omega.services.imp.ProfissionalServiceImp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

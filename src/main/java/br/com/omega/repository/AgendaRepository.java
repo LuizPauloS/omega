@@ -1,6 +1,6 @@
-package br.com.omega.omega.repository;
+package br.com.omega.repository;
 
-import br.com.omega.omega.model.Agenda;
+import br.com.omega.model.Agenda;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,6 +1,6 @@
-package br.com.omega.omega.repository;
+package br.com.omega.repository;
 
-import br.com.omega.omega.model.Pessoa;
+import br.com.omega.model.Pessoa;
 import java.util.Arrays;
 import java.util.List;
 import org.assertj.core.api.Assertions;

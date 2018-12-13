@@ -1,11 +1,11 @@
-package br.com.omega.omega.resources;
+package br.com.omega.resources;
 
-import br.com.omega.omega.model.Agenda;
-import br.com.omega.omega.model.Pessoa;
-import br.com.omega.omega.model.Profissional;
-import br.com.omega.omega.services.imp.AgendaServiceImp;
-import br.com.omega.omega.services.imp.PessoaServiceImp;
-import br.com.omega.omega.services.imp.ProfissionalServiceImp;
+import br.com.omega.model.Agenda;
+import br.com.omega.model.Pessoa;
+import br.com.omega.model.Profissional;
+import br.com.omega.services.imp.AgendaServiceImp;
+import br.com.omega.services.imp.PessoaServiceImp;
+import br.com.omega.services.imp.ProfissionalServiceImp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

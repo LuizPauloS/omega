@@ -1,4 +1,4 @@
-package br.com.omega.omega.exception;
+package br.com.omega.exception;
 
 public class UnicidadeCPFException extends Exception {
 

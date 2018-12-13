@@ -1,12 +1,15 @@
-package br.com.omega.omega.services;
+package br.com.omega.services;
 
-import br.com.omega.omega.exception.UnicidadeCPFException;
-import br.com.omega.omega.model.Pessoa;
+import br.com.omega.model.wrapper.UsuarioWrapper;
+import br.com.omega.exception.UnicidadeCPFException;
+import br.com.omega.model.Pessoa;
 import java.util.List;
 import org.springframework.stereotype.Service;
 
 @Service
 public interface PessoaService {
+    
+    Pessoa login(UsuarioWrapper usuarioWrapper);
     
     Pessoa savePessoa(Pessoa pessoa) throws UnicidadeCPFException;
     

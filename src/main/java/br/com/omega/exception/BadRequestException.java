@@ -1,4 +1,4 @@
-package br.com.omega.omega.exception;
+package br.com.omega.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

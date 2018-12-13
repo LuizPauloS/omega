@@ -1,4 +1,4 @@
-package br.com.omega.omega.model;
+package br.com.omega.model;
 
 import org.springframework.format.annotation.DateTimeFormat;
 

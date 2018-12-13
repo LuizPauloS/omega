@@ -1,4 +1,4 @@
-//package br.com.omega.omega.config;
+//package br.com.omega.config;
 //
 //import org.springframework.context.annotation.Bean;
 //import org.springframework.security.authentication.AuthenticationManager;

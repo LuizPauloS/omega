@@ -1,8 +1,8 @@
-package br.com.omega.omega.services.imp;
+package br.com.omega.services.imp;
 
-import br.com.omega.omega.model.Agenda;
-import br.com.omega.omega.repository.AgendaRepository;
-import br.com.omega.omega.services.AgendaService;
+import br.com.omega.model.Agenda;
+import br.com.omega.repository.AgendaRepository;
+import br.com.omega.services.AgendaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

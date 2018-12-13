@@ -1,4 +1,4 @@
-package br.com.omega.omega.model;
+package br.com.omega.model;
 
 import javax.persistence.*;
 import java.io.Serializable;

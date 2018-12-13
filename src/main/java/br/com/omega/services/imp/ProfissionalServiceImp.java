@@ -1,8 +1,8 @@
-package br.com.omega.omega.services.imp;
+package br.com.omega.services.imp;
 
-import br.com.omega.omega.model.Profissional;
-import br.com.omega.omega.repository.ProfissionalRepository;
-import br.com.omega.omega.services.ProfissionalService;
+import br.com.omega.model.Profissional;
+import br.com.omega.repository.ProfissionalRepository;
+import br.com.omega.services.ProfissionalService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

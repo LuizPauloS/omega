@@ -1,6 +1,6 @@
-package br.com.omega.omega.services;
+package br.com.omega.services;
 
-import br.com.omega.omega.model.Profissional;
+import br.com.omega.model.Profissional;
 import java.util.List;
 import org.springframework.stereotype.Service;
 

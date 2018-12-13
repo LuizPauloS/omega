@@ -1,9 +1,10 @@
-package br.com.omega.omega.resources;
+package br.com.omega.resources;
 
-import br.com.omega.omega.exception.BadRequestException;
-import br.com.omega.omega.exception.UnicidadeCPFException;
-import br.com.omega.omega.model.Pessoa;
-import br.com.omega.omega.services.imp.PessoaServiceImp;
+import br.com.omega.model.wrapper.UsuarioWrapper;
+import br.com.omega.exception.BadRequestException;
+import br.com.omega.exception.UnicidadeCPFException;
+import br.com.omega.model.Pessoa;
+import br.com.omega.services.imp.PessoaServiceImp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -61,5 +62,14 @@ public class PessoaResources {
             return ResponseEntity.ok("Atualizado com Sucesso");
         }
         return ResponseEntity.noContent().build();
+    }
+    
+    @PostMapping("/login")
+    public ResponseEntity<?> login(@RequestBody UsuarioWrapper usuarioWrapper){
+        try {
+            return ResponseEntity.ok(this.pessoaService.login(usuarioWrapper));
+        } catch (Exception ex) {
+            throw new BadRequestException("Erro ao efetuar login. " + ex.getMessage());
+        }
     }
 }
