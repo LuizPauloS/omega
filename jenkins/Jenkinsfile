@@ -12,13 +12,13 @@ pipeline {
                 echo 'Building..'
             }
         }
-        /**stage('Unit Tests') {
+        stage('Unit Tests') {
             steps {
-                sh 'pwd'
-                sh 'mvn test'
+                /**sh 'pwd'
+                sh 'mvn test'*/
                 echo 'Testing..'
             }
-        }*/
+        }
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
