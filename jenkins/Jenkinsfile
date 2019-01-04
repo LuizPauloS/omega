@@ -14,8 +14,8 @@ pipeline {
         }
         stage('Unit Tests') {
             steps {
-                sh 'pwd'
-                sh 'mvn test'
+                /**sh 'pwd'
+                sh 'mvn test'*/
                 echo 'Testing..'
             }
         }
@@ -23,6 +23,11 @@ pipeline {
             steps {
                 sh 'java -jar /var/jenkins_home/workspace/service-omega/target/omega-0.0.1-SNAPSHOT.jar &'
                 echo 'Deploying....'
+            }
+        }
+        stage('Deliver Application') {
+            steps {
+                sh './jenkins/scripts/deliver.sh'
             }
         }
     }
