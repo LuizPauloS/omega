@@ -21,6 +21,9 @@ pipeline {
         }
         stage('Deploy') {
             steps {
+                sh 'cd /target'
+                sh 'pwd'
+                sh 'java -jar omega-0.0.1-SNAPSHOT.jar &'
                 echo 'Deploying....'
             }
         }
