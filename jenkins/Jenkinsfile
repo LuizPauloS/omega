@@ -6,15 +6,17 @@ pipeline {
         }
     }
     stages {
+        stage('Unit Tests') {
+            steps {
+                sh 'pwd'
+                sh 'mvn test'
+                echo 'Testing..'
+            }
+        }
         stage('Build') { 
             steps {
                 sh 'mvn -B -DskipTests clean package' 
                 echo 'Building..'
-            }
-        }
-         stage('Test') {
-            steps {
-                echo 'Testing..'
             }
         }
         stage('Deploy') {
